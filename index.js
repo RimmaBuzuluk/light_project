@@ -4,6 +4,7 @@ const sequelize=require('./db')
 const models=require('./models/models')
 const cors=require('cors')
 const router=require('./routes/index')
+const errorHendler=require('./middleware/ErrorHandingMiddleware')
 
 const PORT = process.env.PORT || 5000;
 const app = express();
@@ -13,11 +14,10 @@ app.use(express.json())
 app.use('/api',router)
 
 
-app.get('/', (req, res)=>{
-    res.status(200).json({message:'working'})
-})
 
+//обробка помилок, останній Middleware
 
+app.use(errorHendler)
 const start=async()=>{
     try{
         await sequelize.authenticate()
