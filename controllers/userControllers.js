@@ -31,6 +31,7 @@ class UserController{
     async login(req, res, next){
         const {email, password}=req.body
         const user=await User.findOne({where:{email}})
+        
         if(!user){
             return next(ApiError.internal('Користувач не зареєстрований'))
         }
@@ -45,6 +46,7 @@ class UserController{
 
     async check(req, res, next){
         const token =generateJwt(req.user.id, req.user.email, req.user.role, req.user.name, req.user.surname, req.user.city)
+        
         return res.json({token})
     }
 }

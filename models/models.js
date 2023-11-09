@@ -12,12 +12,17 @@ const User = sequelize.define('user', {
     city: { type: DataTypes.STRING }
 });
 
-const Comment =sequelize.define('comment',{
-    id_comment:{type:DataTypes.INTEGER, primaryKey:true, autoIncrement:true},
-    content:{type:DataTypes.STRING},
-    data:{type:DataTypes.DATE},
-    user_id:{type:DataTypes.INTEGER}
-})
+const Comment = sequelize.define('comment', {
+    id_comment: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true
+    },
+    content: {
+        type: DataTypes.STRING
+    }
+    
+});
 
 const Adress =sequelize.define('adress',{
     id_adress:{type:DataTypes.INTEGER, primaryKey:true, autoIncrement:true},

@@ -34,9 +34,9 @@ const start=async()=>{
 
 // app.use(express.json())
 // // const routerAddress = 'http://192.168.0.1'; // Задаємо вашу IP-адресу роутера як константу
-// app.get('/',(req, res)=>{
-//     res.send('hello ')
-// })
+app.get('/',(req, res)=>{
+    res.send('hello ')
+})
 
 // // GET-маршрут для пінгування роутера
 // app.get('/ping', (req, res)=>{
