@@ -9,8 +9,9 @@ const errorHendler=require('./middleware/ErrorHandingMiddleware')
 const PORT = process.env.PORT || 5000;
 const app = express();
 
-app.use(cors())
+
 app.use(express.json())
+app.use(cors())
 app.use('/api',router)
 
 
@@ -37,18 +38,6 @@ const start=async()=>{
 app.get('/',(req, res)=>{
     res.send('hello ')
 })
-
-// // GET-маршрут для пінгування роутера
-// app.get('/ping', (req, res)=>{
-//     const routerIp = '192.168.0.1'; // IP-адреса вашого роутера
-//     ping.promise.probe(routerIp)
-//         .then((result) => {
-//             res.json({ isRouterAlive: result.alive });
-//         })
-//         .catch((error) => {
-//             res.status(500).json({ error: 'Error while pinging the router' });
-//         });
-// })
 
 
 

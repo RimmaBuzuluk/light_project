@@ -49,6 +49,38 @@ class UserController{
         
         return res.json({token})
     }
+
+
+    async me(req, res, next){
+        try{
+        const user=await User.findByPk(req.userId)
+
+        if(!user){
+            return res.status(404).json({
+                message:"користувач не знайден"
+            })
+        }
+
+        const userData = {
+            id: user.id,
+            name: user.name,
+            surname: user.surname,
+            email: user.email,
+            role: user.role,
+            city: user.city,
+            createdAt: user.createdAt,
+            updatedAt: user.updatedAt
+        };
+
+        return res.json(userData);
+           
+        }
+        catch(err){console.log(err);
+    res.status(500).json({
+      message: 'Нет доступа',
+    })}
+    }
+    
 }
 
 module.exports=new UserController()

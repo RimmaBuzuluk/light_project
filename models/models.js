@@ -26,9 +26,9 @@ const Comment = sequelize.define('comment', {
 
 const Adress =sequelize.define('adress',{
     id_adress:{type:DataTypes.INTEGER, primaryKey:true, autoIncrement:true},
-    content_adress:{type:DataTypes.INTEGER},
-    statys:{type:DataTypes.BOOLEAN},
-    user_id:{type:DataTypes.INTEGER}
+    content_adress:{type:DataTypes.STRING},
+    adress_place:{type:DataTypes.STRING},
+    statys:{type:DataTypes.BOOLEAN,defaultValue: false}
 })
 
 User.hasMany(Comment)

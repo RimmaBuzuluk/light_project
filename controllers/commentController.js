@@ -5,6 +5,8 @@ class CommentController{
     async create(req, res) {
         const { content } = req.body;
         const { user } = req;
+
+        console.log(content)
     
         try {
             const comment = await Comment.create({ content, userId: user.id });
@@ -16,7 +18,6 @@ class CommentController{
     }
 
     async getAll(req, res){
-        
         const comments =await Comment.findAll()
         res.send(comments)
         return comments

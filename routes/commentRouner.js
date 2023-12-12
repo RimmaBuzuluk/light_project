@@ -6,7 +6,6 @@ const router=new Router()
 
 router.post('/',authMiddleware,commentController.create)
 router.get('/', commentController.getAll)
-
 router.delete('/:id_comment',commentController.delete)
 
 
