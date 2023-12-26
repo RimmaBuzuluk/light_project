@@ -6,8 +6,11 @@ class CommentController{
         const { content } = req.body;
         const { user } = req;
 
+        console.log(req.body)
+
         console.log(content)
     
+
         try {
             const comment = await Comment.create({ content, userId: user.id });
             return res.json(comment);
@@ -24,7 +27,6 @@ class CommentController{
     }
 
   
-
     async delete(req, res){
         const {id_comment}=req.params
         res.send(id_comment)

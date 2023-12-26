@@ -2,18 +2,18 @@ const {Adress}=require('../models/models')
 
 class AdressController{
     async create(req, res){
-        const {content_adress}=req.body;
-        const {adress_place}=req.body;
+        const {content_adress, adress_place}=req.body;
         const {user}=req
-
+       
         console.log(content_adress)
         console.log(adress_place)
         console.log(user.id)
             
         const adress=await Adress.create({ content_adress, adress_place, userId: user.id })
         return res.json(adress)
-        
     }
+
+
 
     async getAll(req, res){
         const adress=await Adress.findAll()
@@ -29,7 +29,7 @@ class AdressController{
 
         res.send(adress)
     }
-
+ 
 
     async ping(req, res){
         res.json("ping")

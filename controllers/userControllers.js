@@ -50,7 +50,6 @@ class UserController{
         return res.json({token})
     }
 
-
     async me(req, res, next){
         try{
         const user=await User.findByPk(req.userId)

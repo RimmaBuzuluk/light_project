@@ -5,6 +5,7 @@ const models=require('./models/models')
 const cors=require('cors')
 const router=require('./routes/index')
 const errorHendler=require('./middleware/ErrorHandingMiddleware')
+// const bodyParser=require('body-parser')
 
 const PORT = process.env.PORT || 5000;
 const app = express();
@@ -13,6 +14,7 @@ const app = express();
 app.use(express.json())
 app.use(cors())
 app.use('/api',router)
+
 
 
 
@@ -33,10 +35,13 @@ const start=async()=>{
 
 }
 
-// app.use(express.json())
-// // const routerAddress = 'http://192.168.0.1'; // Задаємо вашу IP-адресу роутера як константу
-app.get('/',(req, res)=>{
-    res.send('hello ')
+
+app.post('/',(req, res)=>{
+    const { name} = req.body;
+
+    console.log(name)
+    return res.json(name)
+
 })
 
 
